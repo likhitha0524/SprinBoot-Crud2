@@ -1,0 +1,47 @@
+{
+  "provider": {
+    "name": "productService"
+  },
+  "consumer": {
+    "name": "order-service"
+  },
+  "interactions": [
+    {
+      "description": "a request to retrieve product information",
+      "request": {
+        "method": "GET",
+        "path": "/product-service/product/105"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "productNumber": 100,
+          "productDescription": "string",
+          "productCategory": "string"
+        },
+        "matchingRules": {
+          "$.body.productNumber": {
+            "match": "type"
+          },
+          "$.body.productDescription": {
+            "match": "type"
+          },
+          "$.body.productCategory": {
+            "match": "type"
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    },
+    "pact-jvm": {
+      "version": "4.0.10"
+    }
+  }
+}
